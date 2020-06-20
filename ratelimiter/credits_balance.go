@@ -21,9 +21,9 @@ type CreditsBalanceRateLimiter struct {
 	mu sync.Mutex
 
 	creditsPerSecond float64
-	balance float64
-	maxBalance float64
-	lastTick time.Time
+	balance          float64
+	maxBalance       float64
+	lastTick         time.Time
 
 	timeNow func() time.Time
 }
