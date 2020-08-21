@@ -9,12 +9,19 @@ func StringSliceToSet(slice []string) map[string]interface{} {
 	return set
 }
 
-// FilterStringSlice apply filter to slice of string.
-func FilterStringSlice(slice []string, filter func(ele string) bool) (ret []string) {
+// StringSliceFilter apply filter to slice of string.
+func StringSliceFilter(slice []string, filter func(ele string) bool) (ret []string) {
 	for _, ele := range slice {
 		if filter(ele) {
 			ret = append(ret, ele)
 		}
 	}
 	return ret
+}
+
+// StringSliceForEach apply the do function to each element
+func StringSliceForEach(slice []string, do func(i int, ele string, raw []string)) {
+	for i, ele := range slice {
+		do(i, ele, slice)
+	}
 }
