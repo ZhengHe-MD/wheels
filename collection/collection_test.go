@@ -75,3 +75,24 @@ func TestStringSliceForEach(t *testing.T) {
 		StringSliceForEach(tt.givenSlice, tt.givenDo)
 	}
 }
+
+func TestReverseSliceInPlace(t *testing.T) {
+	tests := []struct {
+		givenSlice []interface{}
+		wantSlice []interface{}
+	} {
+		{
+			[]interface{}{"a", "b", "c"},
+			[]interface{}{"c", "b", "a"},
+		},
+		{
+			[]interface{}{1, 2, 3, 4},
+			[]interface{}{4, 3, 2, 1},
+		},
+	}
+
+	for _, tt := range tests {
+		ReverseSliceInPlace(tt.givenSlice)
+		assert.Equal(t, tt.wantSlice, tt.givenSlice)
+	}
+}

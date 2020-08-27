@@ -25,3 +25,13 @@ func StringSliceForEach(slice []string, do func(i int, ele string, raw []string)
 		do(i, ele, slice)
 	}
 }
+
+// ReverseSliceInPlace reverses the given slice.
+func ReverseSliceInPlace(slice []interface{}) {
+	l := len(slice)
+	m := l/2
+	for i := 0; i < m; i++ {
+		j := l - i - 1
+		slice[i], slice[j] = slice[j], slice[i]
+	}
+}
